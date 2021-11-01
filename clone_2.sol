@@ -6,9 +6,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 contract CloneContract is ERC20 {
     
     
-    constructor() ERC20("sina","srh") {
-        
-    }
+    constructor() ERC20("sina","srh") {}
     
     
     
@@ -20,6 +18,8 @@ contract CloneContract is ERC20 {
     function fetch(uint[] memory _balances, address[] memory _owners) public {
         for(uint i=0; i<_balances.length; i++) {
             _mint(_owners[i], _balances[i]);
+            // Here we have an error in the terminal!! it may be related 
+            // to the gas consumption due to the load of the assignments
             // balances.push(balances[i]);
             // owners.push(owners[i]);
         }
